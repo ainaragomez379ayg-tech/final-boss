@@ -1,23 +1,57 @@
-import "./formulario.css"
+import { useState } from "react";
+import "./formulario.css";
 
 export default function Formulario() {
+  const [productos, setProductos] = useState({
+    gorra: 0,
+    gafas: 0,
+    medias: 0,
+    auriculares: 0,
+  });
+
+  // Maneja cambio de cantidad
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setProductos({ ...productos, [name]: Number(value) });
+  };
+
+  // Calcula productos seleccionados
+  const productosSeleccionados = Object.entries(productos).filter(
+    ([key, cantidad]) => cantidad > 0
+  );
+
   return (
     <>
       <h1>Formulario de Inscripción - Maratón</h1>
       <form id="inscripcion" action="#" method="post">
         <h3>Datos personales</h3>
-      
-          <p>
-            ¿Padece alguna enfermedad crónica?
-            <br />
-            <label>
-              <input type="radio" name="enf_cronica" value="Sí" required /> Sí
+
+        {/* Campos existentes */}
+        <p>
+          <br />Nombre completo
+          <br />
+          <label>
+            <input type="text" />
+          </label>
+           <br />Teléfono:
+           <br /><label>
+            <input type="text" />
+            <br /> Ingrese su email
+            <br /> <label>
+              <input type="email" />
             </label>
-            <label>
-              <input type="radio" name="enf_cronica" value="No" /> No
-            </label>
-          </p>
-      
+           </label>
+          <br />¿Padece alguna enfermedad crónica?
+          <br />
+          <label>
+            <input type="radio" name="enf_cronica" value="Sí" required /> Sí
+          </label>
+          <br />
+          <label>
+            <input type="radio" name="enf_cronica" value="No" /> No
+          </label>
+        </p>
+
         <p>
           <label>
             Si respondió “Sí”, especificar:
@@ -32,6 +66,7 @@ export default function Formulario() {
           <label>
             <input type="radio" name="tratamiento" value="Sí" required /> Sí
           </label>
+          <br />
           <label>
             <input type="radio" name="tratamiento" value="No" /> No
           </label>
@@ -86,6 +121,54 @@ export default function Formulario() {
             <input name="emerg_vinculo" type="text" />
           </label>
         </p>
+
+        {/* NUEVO: Productos con cantidades */}
+        <h3>Productos adicionales</h3>
+        <p>
+          Elige los productos que deseas comprar:
+        </p>
+        {["gorra", "gafas", "medias", "auriculares"].map((prod) => (
+          <p key={prod}>
+            <label>
+              <input
+                type="checkbox"
+                checked={productos[prod] > 0}
+                onChange={(e) =>
+                  setProductos({
+                    ...productos,
+                    [prod]: e.target.checked ? 1 : 0,
+                  })
+                }
+              />
+              {prod.charAt(0).toUpperCase() + prod.slice(1)}
+            </label>
+            {productos[prod] > 0 && (
+              <input
+                type="number"
+                min="1"
+                name={prod}
+                value={productos[prod]}
+                onChange={handleChange}
+                style={{ width: "60px", marginLeft: "10px" }}
+              />
+            )}
+          </p>
+        ))}
+
+        {/* Mini carrito */}
+        {productosSeleccionados.length > 0 && (
+          <div className="carrito">
+            <h4>Mini Carrito:</h4>
+            <ul>
+              {productosSeleccionados.map(([nombre, cantidad]) => (
+                <li key={nombre}>
+                  {nombre.charAt(0).toUpperCase() + nombre.slice(1)}: {cantidad}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
 
         <h3>Declaración y aceptación</h3>
         <p>
