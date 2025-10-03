@@ -2,13 +2,14 @@ import './pagina_principal.css'
 import { Link } from 'react-router-dom'
 import inicio from './db/inicio.json'
 
-export default function Pagina_principal(titulo, items) {
+export default function Pagina_principal() {
 
     const seccion = inicio
 
     return (
         <>
-            <h1>THE FACTORY CHAMPIONS</h1>
+                <h1>THE FACTORY CHAMPIONS</h1>
+       
             <h2>¡Viví la experiencia de la Maratón!</h2>
             <p>Sumate a uno de los eventos deportivos más esperados del año.
                 Ya seas principiante o corredor experimentado, esta es tu oportunidad de desafiarte,
@@ -25,9 +26,9 @@ export default function Pagina_principal(titulo, items) {
 
             <p>👉 No te quedes afuera. Los cupos son limitados.</p>
             <p>Hacé clic en el botón de inscripción, completá tus datos y asegurá tu lugar en la línea de largada.</p>
-            
-            <div className='registrarse'>
-                <Link to="/formulario">Registrarse</Link>
+
+            <div className='boton_centrado'>
+               <Link to="./formulario" className='registrarse'>Registrarse</Link>
             </div>
 
 

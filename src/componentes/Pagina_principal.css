@@ -12,26 +12,28 @@ body {
   min-height: 100vh;
   padding: 30px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 
   /* Fondo degradado animado */
-  background: linear-gradient(-45deg, #b8e0f5, #fbcfe8, #a5f3fc, #f9a8d4);
-  background-size: 400% 400%;
+  background-color: white;
   animation: gradientBG 15s ease infinite;
-
   animation: fadeIn 1.2s ease-in-out;
 }
+
+
+
 
 /* ===== TITULOS ===== */
 h1 {
   text-align: center;
   font-size: 3rem;
-  color: #2563eb;
+  color: white;
   font-weight: 800;
   margin-bottom: 10px;
   padding: 30px;
+  background-color: aqua;
+  
 }
 
 h2 {
@@ -55,14 +57,16 @@ h3 {
 
 /* ===== PARRAFOS LIMPIOS ===== */
 p {
+  margin: auto;
   margin-bottom: 18px;
   font-size: 2rem;
   line-height: 1.8;
   color: #444;
   max-width: 800px;
-  text-align: justify;
+  text-align: center;
   letter-spacing: 0.5px;
   font-weight: 400;
+  width: 100%;
 }
 
 /* ===== LISTAS LIMPIAS ===== */
@@ -82,24 +86,40 @@ ul li {
 }
 
 /* ===== BOTON DE INSCRIPCION ===== */
+
+.boton_centrado{
+  text-align: center;
+  margin: 50px;
+  
+}
+
 .registrarse{
-  display: inline-block;
   text-decoration: none;
   background: linear-gradient(135deg, #60a5fa, #f9a8d4);
   color: #ffffff;
   padding: 14px 35px;
   border-radius: 40px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
-  margin-top: 25px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+   display: inline-block;
+   min-width: 450px;
 }
 
-.register-button:hover {
+.registrarse:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  .registrarse:hover {
+    color: #747bff;
+  }
 }
 
 /* ===== RESPONSIVE ===== */
@@ -144,9 +164,11 @@ ul li {
     font-size: 0.9rem;
   }
 
-  .register-button {
+  .registrarse {
     font-size: 1rem;
     padding: 12px 28px;
+    min-width: 300px;
+
   }
 }
 
@@ -182,6 +204,9 @@ ul li {
 .decoracion {
   background-color: white;
   border-radius: 20px;
-  border: 2px solid black;
+  border: 3px solid black;
   margin: 20px;
+  justify-content: center;
+  align-items: center;
+
 }
