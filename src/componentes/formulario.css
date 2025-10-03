@@ -1,5 +1,64 @@
 .formulario > label{
     border: 2px solid black;
 
-    
+    /* formulario.css - Versión tienda online */
+
+/* Mini carrito */
+.carrito {
+  background: #ecf0f1;
+  border-left: 5px solid #27ae60;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.carrito h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: #27ae60;
+}
+
+.carrito ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carrito ul li {
+  padding: 3px 0;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+/* Inputs y botones iguales que versión moderna */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  margin: 0;
+  padding: 20px;
+  color: #2c3e50;
+}
+
+h1 { text-align: center; color: #fff; font-size: 28px; margin-bottom: 25px; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); }
+h3 { color: #fff; margin-top: 25px; margin-bottom: 10px; border-bottom: 2px solid rgba(255,255,255,0.5); padding-bottom: 5px; text-shadow: 1px 1px 3px rgba(0,0,0,0.2); }
+
+form { max-width: 650px; margin: 0 auto; background: rgba(255,255,255,0.95); padding: 30px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+
+p { margin-bottom: 18px; line-height: 1.6; }
+label { display: block; font-weight: 500; margin-top: 8px; font-size: 15px; }
+input[type="text"], input[type="tel"], select { width: 100%; padding: 10px 12px; margin-top: 6px; border: 1px solid #bdc3c7; border-radius: 8px; font-size: 14px; transition: all 0.3s ease; }
+input[type="text"]:focus, input[type="tel"]:focus, select:focus { border-color: #27ae60; box-shadow: 0 0 6px rgba(39, 174, 96, 0.5); outline: none; }
+
+input[type="radio"], input[type="checkbox"] { width: 18px; height: 18px; accent-color: #27ae60; margin-right: 8px; }
+
+button { background: #27ae60; color: #fff; border: none; padding: 12px 20px; font-size: 16px; border-radius: 8px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; margin-top: 10px; }
+button:hover { background: #2ecc71; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+
+@media (max-width: 700px) {
+  form { padding: 20px; }
+  h1 { font-size: 24px; }
+  h3 { font-size: 18px; }
+  button { width: 100%; }
+}
+
 }
